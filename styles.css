@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  .btn-primary {
+    @apply bg-brand-blue hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-brand-blue font-bold py-3 px-6 rounded-full transition;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold mb-2;
+  }
+  
+  .section-divider {
+    @apply w-20 h-1 bg-brand-blue mx-auto;
+  }
+} 

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${webinar.price}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button class="schedule-register-btn bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold py-2 px-4 rounded-full transition"
+                    <button class="schedule-register-btn bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-6 rounded-md transition shadow-lg"
                             data-webinar="${webinar.title}"
                             data-date="${formattedDate}"
                             data-time="${webinar.time}">

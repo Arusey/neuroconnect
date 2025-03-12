@@ -1,0 +1,20 @@
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+  
+  sheet.appendRow([
+    new Date(), // Timestamp
+    data.webinarTitle,
+    data.webinarDate,
+    data.webinarTime,
+    data.name,
+    data.email,
+    data.phone,
+    data.paymentReference || 'Not provided'
+  ]);
+  
+  return ContentService.createTextOutput(JSON.stringify({
+    'status': 'success',
+    'message': 'Registration recorded'
+  })).setMimeType(ContentService.MimeType.JSON);
+} 

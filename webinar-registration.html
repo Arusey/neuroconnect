@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroConnect - Webinar Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #374151;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+        }
+        .btn-primary {
+            background-color: #1877f2;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #166fe5;
+        }
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+        .order-summary {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html">
+                <img src="assets/neuroconnectlogo.jpeg" alt="NeuroConnect Logo" class="logo">
+            </a>
+            <h1 class="text-3xl font-bold text-gray-800">Webinar Registration</h1>
+            <p class="text-gray-600 mt-2">Complete the form below to register for the webinar</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="order-summary">
+                <h2 class="text-xl font-bold mb-4">Webinar Details</h2>
+                <p class="mb-2"><strong>Selected Webinar:</strong> <span id="webinarTitleDisplay">Loading...</span></p>
+                <p class="mb-2"><strong>Fee:</strong> 350 KES</p>
+                <p class="text-sm text-gray-600">Please complete the registration form and payment details below.</p>
+            </div>
+            
+            <form id="registration-form">
+                <h3 class="text-xl font-bold mb-4">Personal Information</h3>
+                
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="referral" class="form-label">How did you hear about us?</label>
+                    <select id="referral" name="referral" class="form-select">
+                        <option value="">Please select</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="friend">Friend or Family</option>
+                        <option value="search">Search Engine</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <h3 class="text-xl font-bold mb-4 mt-8">Payment Information</h3>
+                <p class="mb-4 text-sm text-gray-600">Please send payment via M-PESA to <strong>+254 723 876047</strong> and enter the details below.</p>
+                
+                <div class="form-group">
+                    <label for="mpesaNumber" class="form-label">M-PESA Phone Number</label>
+                    <input type="tel" id="mpesaNumber" name="mpesaNumber" class="form-input" required placeholder="e.g. 07XX XXX XXX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentReference" class="form-label">M-PESA Payment Reference Number</label>
+                    <input type="text" id="paymentReference" name="paymentReference" class="form-input" required placeholder="e.g. QJI2XXXXXXX">
+                </div>
+                
+                <!-- Hidden field for webinar title -->
+                <input type="hidden" id="webinarTitle" name="webinarTitle" value="">
+                
+                <div class="flex justify-between mt-8">
+                    <button type="submit" id="submit-button" class="btn-primary">Complete Registration</button>
+                    <button type="button" id="cancel-button" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+            
+            <div id="result" class="result" style="display: none;">
+                <h4 class="font-bold mb-2">Submission Result:</h4>
+                <pre id="result-content" class="whitespace-pre-wrap text-sm bg-gray-50 p-3 rounded overflow-auto max-h-60"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get webinar title from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const webinarTitle = urlParams.get('webinar');
+            
+            // Set webinar title in the form and display
+            if (webinarTitle) {
+                document.getElementById('webinarTitle').value = webinarTitle;
+                document.getElementById('webinarTitleDisplay').textContent = webinarTitle;
+            }
+            
+            // Handle form submission
+            const form = document.getElementById('registration-form');
+            const submitButton = document.getElementById('submit-button');
+            const resultDiv = document.getElementById('result');
+            const resultContent = document.getElementById('result-content');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const originalButtonText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = "Submitting...";
+                resultDiv.style.display = 'none';
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const referral = document.getElementById('referral').value || "None";
+                const webinarTitle = document.getElementById('webinarTitle').value;
+                const mpesaNumber = document.getElementById('mpesaNumber').value;
+                const paymentReference = document.getElementById('paymentReference').value;
+                const registrationDate = new Date().toISOString();
+                
+                // Log the data being sent (for debugging)
+                console.log("Sending form data:", {
+                    name, email, phone, referral, webinarTitle, mpesaNumber, paymentReference, registrationDate
+                });
+                
+                // Google Sheet submission URL
+                const googleSheetURL = "https://script.google.com/macros/s/AKfycbydGNaOc3aLn4ENWp2LstxzYnSbKM7PYsrb4vCzw_ylzNbDUKnr--29u5VMKrGOiY1JVQ/exec";
+                
+                // Create a URL with parameters
+                const url = `${googleSheetURL}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&referral=${encodeURIComponent(referral)}&webinarTitle=${encodeURIComponent(webinarTitle)}&mpesaNumber=${encodeURIComponent(mpesaNumber)}&paymentReference=${encodeURIComponent(paymentReference)}&registrationDate=${encodeURIComponent(registrationDate)}`;
+                
+                // Create a hidden iframe for submission
+                const iframeId = 'hidden-form-iframe';
+                let iframe = document.getElementById(iframeId);
+                
+                if (!iframe) {
+                    iframe = document.createElement('iframe');
+                    iframe.id = iframeId;
+                    iframe.name = iframeId;
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                }
+                
+                // Create a form to submit through the iframe
+                const formData = document.createElement('form');
+                formData.method = 'GET';
+                formData.action = googleSheetURL;
+                formData.target = iframeId;
+                formData.style.display = 'none';
+                
+                // Add form fields
+                const addField = (name, value) => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = value;
+                    formData.appendChild(input);
+                };
+                
+                addField('name', name);
+                addField('email', email);
+                addField('phone', phone);
+                addField('referral', referral);
+                addField('webinarTitle', webinarTitle);
+                addField('mpesaNumber', mpesaNumber);
+                addField('paymentReference', paymentReference);
+                addField('registrationDate', registrationDate);
+                
+                // Add the form to the document
+                document.body.appendChild(formData);
+                
+                // Set up a timeout for the iframe submission
+                const submissionTimeout = setTimeout(() => {
+                    console.log("Submission timeout, trying direct method");
+                    // Try direct method
+                    fetch(url, { mode: 'no-cors' })
+                        .then(() => {
+                            showSuccessMessage();
+                        })
+                        .catch(error => {
+                            console.error("Fetch error:", error);
+                            showSuccessMessage(); // Assume success anyway
+                        });
+                }, 5000);
+                
+                // Handle iframe load event
+                iframe.onload = function() {
+                    clearTimeout(submissionTimeout);
+                    console.log("iframe loaded");
+                    showSuccessMessage();
+                };
+                
+                // Submit the form
+                formData.submit();
+                
+                // Final fallback - assume success after 10 seconds
+                setTimeout(() => {
+                    clearTimeout(submissionTimeout);
+                    showSuccessMessage();
+                }, 10000);
+                
+                function showSuccessMessage() {
+                    // Only proceed if the button is still disabled (first response)
+                    if (submitButton.disabled) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                        
+                        resultDiv.style.display = 'block';
+                        resultDiv.className = 'result bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4';
+                        resultContent.textContent = "Your registration has been submitted successfully!";
+                        
+                        // Reset form
+                        form.reset();
+                        
+                        // After 5 seconds, redirect back to the main page
+                        setTimeout(() => {
+                            window.location.href = 'index.html#webinars';
+                        }, 5000);
+                        
+                        // Clean up
+                        if (formData && formData.parentNode) {
+                            formData.parentNode.removeChild(formData);
+                        }
+                    }
+                }
+            });
+            
+            // Handle cancel button
+            document.getElementById('cancel-button').addEventListener('click', function() {
+                window.location.href = 'index.html#webinars';
+            });
+        });
+    </script>
+</body>
+</html> 

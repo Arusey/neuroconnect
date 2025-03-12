@@ -75,52 +75,75 @@
                     <img src="assets/neuroconnectlogo.jpeg" alt="NeuroConnect Logo" class="h-16">
                 </div>
                 
-                <!-- Navigation -->
-                <nav class="py-2">
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <svg class="h-6 w-6 text-[#406b86]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:block py-2">
                     <ul class="flex space-x-6">
-                        <li><a href="#home" class="font-semibold hover:text-[#1877f2] transition">Home</a></li>
-                        <li><a href="#about" class="font-semibold hover:text-[#1877f2] transition">About Us</a></li>
-                        <li><a href="#services" class="font-semibold hover:text-[#1877f2] transition">Services</a></li>
-                        <li><a href="#club" class="font-semibold hover:text-[#1877f2] transition">NeuroConnect Club</a></li>
-                        <li><a href="#webinars" class="font-semibold hover:text-[#1877f2] transition">Webinars</a></li>
-                        <li><a href="#contact" class="font-semibold hover:text-[#1877f2] transition">Contact</a></li>
+                        <li><a href="#home" class="font-semibold hover:text-[#406b86] transition">Home</a></li>
+                        <li><a href="#about" class="font-semibold hover:text-[#406b86] transition">About Us</a></li>
+                        <li><a href="#services" class="font-semibold hover:text-[#406b86] transition">Services</a></li>
+                        <li><a href="#resources" class="font-semibold hover:text-[#406b86] transition">Resources</a></li>
+                        <li><a href="#pricing" class="font-semibold hover:text-[#406b86] transition">Pricing</a></li>
+                        <li><a href="#club" class="font-semibold hover:text-[#406b86] transition">NeuroConnect Club</a></li>
+                        <li><a href="#webinars" class="font-semibold hover:text-[#406b86] transition">Webinars</a></li>
+                        <li><a href="#contact" class="font-semibold hover:text-[#406b86] transition">Contact</a></li>
                     </ul>
                 </nav>
             </div>
+            
+            <!-- Mobile Navigation (hidden by default) -->
+            <nav id="mobile-menu" class="hidden md:hidden py-4">
+                <ul class="flex flex-col space-y-4">
+                    <li><a href="#home" class="block font-semibold hover:text-[#406b86] transition">Home</a></li>
+                    <li><a href="#about" class="block font-semibold hover:text-[#406b86] transition">About Us</a></li>
+                    <li><a href="#services" class="block font-semibold hover:text-[#406b86] transition">Services</a></li>
+                    <li><a href="#resources" class="block font-semibold hover:text-[#406b86] transition">Resources</a></li>
+                    <li><a href="#pricing" class="block font-semibold hover:text-[#406b86] transition">Pricing</a></li>
+                    <li><a href="#club" class="block font-semibold hover:text-[#406b86] transition">NeuroConnect Club</a></li>
+                    <li><a href="#webinars" class="block font-semibold hover:text-[#406b86] transition">Webinars</a></li>
+                    <li><a href="#contact" class="block font-semibold hover:text-[#406b86] transition">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-20">
+    <section id="home" class="bg-gradient-to-r from-[#406b86] to-[#9cbcc6] text-white py-12 md:py-20">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Empowering Special Needs Families Across Kenya, Uganda, Tanzania, Sudan, and Rwanda</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Bridging the gap in special needs support through training, advocacy, and community resources.</p>
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Empowering Special Needs Families Across Kenya, Uganda, Tanzania, Sudan, and Rwanda</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Bridging the gap in special needs support through training, advocacy, and community resources.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full transition">Contact Us</a>
-                <a href="#club" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-full transition">Join Our Club</a>
+                <a href="#contact" class="bg-[#eb8445] hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-full transition">Contact Us</a>
+                <a href="#club" class="bg-[#faf2e9] hover:bg-[#e4c5af] text-[#406b86] font-bold py-3 px-6 rounded-full transition">Join Our Club</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-12 md:py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-2">Who We Are</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <div class="w-20 h-1 bg-[#406b86] mx-auto"></div>
             </div>
             
             <div class="max-w-4xl mx-auto">
                 <p class="text-lg mb-6">NeuroConnect is a pioneering organization dedicated to empowering special needs families, schools, and individuals across Kenya, Uganda, Tanzania, Sudan, and Rwanda. Our mission is to bridge the gap in special needs support by providing structured training, advocacy, and resources to create a more inclusive and informed society.</p>
                 
                 <div class="grid md:grid-cols-2 gap-8 mt-12">
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3">Our Vision</h3>
+                    <div class="bg-[#faf2e9] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-[#406b86] mb-3">Our Vision</h3>
                         <p>To be the leading support and training hub for special needs in Kenya, Uganda, Tanzania, Sudan, and Rwanda, fostering an inclusive community where individuals with special needs can thrive.</p>
                     </div>
                     
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3">Our Mission</h3>
+                    <div class="bg-[#faf2e9] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-[#406b86] mb-3">Our Mission</h3>
                         <ul class="list-disc pl-5 space-y-2">
                             <li>Providing specialized training for parents, caregivers, schools, and organizations.</li>
                             <li>Creating awareness and advocacy programs to drive inclusion.</li>
@@ -431,12 +454,12 @@
                             <img src="assets/webinar-imageone.jpeg" alt="Understanding Autism" class="w-full h-48 object-cover rounded-lg mb-4">
                             <h3 class="text-xl font-bold mb-2">Understanding Autism: Myths, Facts, and Early Signs</h3>
                             <p class="mb-4">Join us for a comprehensive webinar on autism awareness, debunking common myths, and learning to recognize early signs of autism in children.</p>
-                            <div class="bg-blue-50 p-3 rounded-lg mb-4">
-                                <p class="font-bold text-[#1877f2]">Schedule:</p>
-                                <p class="text-[#1877f2]">Wednesday, April 2, 2025</p>
-                                <p class="text-[#1877f2]">Time: 6:00 PM - 8:00 PM</p>
+                            <div class="bg-[#faf2e9] p-3 rounded-lg mb-4">
+                                <p class="font-bold text-[#406b86]">Schedule:</p>
+                                <p class="text-[#406b86]">Wednesday, April 2, 2025</p>
+                                <p class="text-[#406b86]">Time: 6:00 PM - 8:00 PM</p>
                             </div>
-                            <a href="#register-form" class="bg-blue-600  hover:bg-[#166fe5] text-white font-bold py-2 px-4 rounded-md transition register-btn block text-center" data-webinar="Understanding Autism: Myths, Facts, and Early Signs">Register for Webinar</a>
+                            <a href="webinar-registration.html?webinar=Understanding%20Autism:%20Myths,%20Facts,%20and%20Early%20Signs" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition register-btn block text-center mt-4 shadow-md">Register for Webinar</a>
                         </div>
                         
                         <!-- Webinar 2 -->
@@ -444,12 +467,12 @@
                             <img src="assets/webinar-imagetwo.jpeg" alt="Parent Advocacy" class="w-full h-48 object-cover rounded-lg mb-4">
                             <h3 class="text-xl font-bold mb-2">Empowering Parents: Advocacy and Rights for Children with Autism</h3>
                             <p class="mb-4">Learn about your rights as a parent and how to effectively advocate for your child with autism in educational and healthcare settings.</p>
-                            <div class="bg-green-50 p-3 rounded-lg mb-4">
-                                <p class="font-bold text-green-800">Schedule:</p>
-                                <p class="text-green-700">Saturday, April 5, 2025</p>
-                                <p class="text-green-700">Time: 9:00 AM - 11:00 AM</p>
+                            <div class="bg-[#faf2e9] p-3 rounded-lg mb-4">
+                                <p class="font-bold text-[#a4485e]">Schedule:</p>
+                                <p class="text-[#a4485e]">Saturday, April 5, 2025</p>
+                                <p class="text-[#a4485e]">Time: 9:00 AM - 11:00 AM</p>
                             </div>
-                            <a href="#register-form" class="bg-blue-600  hover:bg-[#166fe5] text-white font-bold py-2 px-4 rounded-md transition register-btn block text-center" data-webinar="Empowering Parents: Advocacy and Rights for Children with Autism">Register for Webinar</a>
+                            <a href="webinar-registration.html?webinar=Empowering%20Parents:%20Advocacy%20and%20Rights%20for%20Children%20with%20Autism" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition register-btn block text-center mt-4 shadow-md">Register for Webinar</a>
                         </div>
                         
                         <!-- Webinar 3 -->
@@ -457,12 +480,12 @@
                             <img src="assets/webinar-imagethree.jpeg" alt="Communication Strategies" class="w-full h-48 object-cover rounded-lg mb-4">
                             <h3 class="text-xl font-bold mb-2">Speech and Communication Strategies for Nonverbal and Verbal Children</h3>
                             <p class="mb-4">Discover effective communication techniques and tools to support both nonverbal and verbal children with special needs.</p>
-                            <div class="bg-purple-50 p-3 rounded-lg mb-4">
-                                <p class="font-bold text-purple-800">Schedule:</p>
-                                <p class="text-purple-700">Wednesday, April 9, 2025</p>
-                                <p class="text-purple-700">Time: 6:00 PM - 8:00 PM</p>
+                            <div class="bg-[#faf2e9] p-3 rounded-lg mb-4">
+                                <p class="font-bold text-[#eb8445]">Schedule:</p>
+                                <p class="text-[#eb8445]">Wednesday, April 9, 2025</p>
+                                <p class="text-[#eb8445]">Time: 6:00 PM - 8:00 PM</p>
                             </div>
-                            <a href="#register-form" class="bg-blue-600  hover:bg-[#166fe5] text-white font-bold py-2 px-4 rounded-md transition register-btn block text-center" data-webinar="Speech and Communication Strategies for Nonverbal and Verbal Children">Register for Webinar</a>
+                            <a href="webinar-registration.html?webinar=Speech%20and%20Communication%20Strategies%20for%20Nonverbal%20and%20Verbal%20Children" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition register-btn block text-center mt-4 shadow-md">Register for Webinar</a>
                         </div>
                         
                         <!-- Webinar 4 -->
@@ -470,12 +493,12 @@
                             <img src="assets/webinar-imageone.jpeg" alt="Introduction to Special Needs" class="w-full h-48 object-cover rounded-lg mb-4">
                             <h3 class="text-xl font-bold mb-2">Introduction to Special Needs: Understanding Different Conditions</h3>
                             <p class="mb-4">An overview of various special needs conditions, their characteristics, and how to provide appropriate support for each.</p>
-                            <div class="bg-yellow-50 p-3 rounded-lg mb-4">
-                                <p class="font-bold text-yellow-800">Schedule:</p>
-                                <p class="text-yellow-700">Friday, March 21, 2025</p>
-                                <p class="text-yellow-700">Time: 4:00 PM - 6:00 PM</p>
+                            <div class="bg-[#faf2e9] p-3 rounded-lg mb-4">
+                                <p class="font-bold text-[#9cbcc6]">Schedule:</p>
+                                <p class="text-[#9cbcc6]">Friday, March 21, 2025</p>
+                                <p class="text-[#9cbcc6]">Time: 4:00 PM - 6:00 PM</p>
                             </div>
-                            <a href="#register-form" class="bg-blue-600 hover:bg-[#166fe5] text-white font-bold py-2 px-4 rounded-md transition register-btn block text-center" data-webinar="Introduction to Special Needs: Understanding Different Conditions">Register for Webinar</a>
+                            <a href="webinar-registration.html?webinar=Introduction%20to%20Special%20Needs:%20Understanding%20Different%20Conditions" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition register-btn block text-center mt-4 shadow-md">Register for Webinar</a>
                         </div>
                     </div>
                 </div>
@@ -493,40 +516,8 @@
                     </div>
                 </div>
                 
-                <!-- Registration Form (Hidden by default) -->
-                <div id="register-form" class="mt-8 bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Register for Webinar</h3>
-                    <p id="selected-webinar" class="mb-4 text-[#1877f2] font-semibold"></p>
-                    <form id="webinar-registration-form">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-bold mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="phone" class="block text-gray-700 font-bold mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full p-2 border border-gray-300 rounded" required>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2">How did you hear about us?</label>
-                            <select id="referral" name="referral" class="w-full p-2 border border-gray-300 rounded">
-                                <option value="">Please select</option>
-                                <option value="social-media">Social Media</option>
-                                <option value="friend">Friend or Family</option>
-                                <option value="search">Search Engine</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <input type="hidden" id="webinar-title" name="webinar-title" value="">
-                        <div class="flex justify-between">
-                            <button type="submit" class="bg-blue-600 hover:bg-[#166fe5] text-white font-bold py-3 px-6 rounded-md transition">Submit Registration</button>
-                            <button type="button" id="cancel-registration" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-full transition">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+                <!-- Registration Form section removed - now redirecting to webinar-registration.html -->
+                
             </div>
         </div>
     </section>
@@ -608,6 +599,251 @@
                             <p class="italic">"I love how NeuroConnect is not just about training but also building a community. It has made it easier for professionals like me to share knowledge and provide holistic care to neurodivergent individuals."</p>
                         </div>
                         <p class="text-right font-semibold">– Anne M., Child Psychologist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">NeuroConnect Resources</h2>
+                <div class="w-20 h-1 bg-[#1877f2] mx-auto"></div>
+                <p class="mt-4 max-w-3xl mx-auto text-gray-600">
+                    Access our comprehensive collection of resources designed to support neurodivergent children, parents, and educators.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- Parent Resources -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-[#1877f2] py-4 px-6">
+                        <h3 class="text-xl font-bold text-white">Parent Resources</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Monthly Parent Support Groups
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                One-on-One Counseling
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Behavior Management Guides
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- School Resources -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-[#1877f2] py-4 px-6">
+                        <h3 class="text-xl font-bold text-white">School Resources</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Inclusive Education Guidelines
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Sensory Room Design Guide
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Teacher Training Materials
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-[#1877f2] py-4 px-6">
+                        <h3 class="text-xl font-bold text-white">Additional Resources</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Book & Toy Exchange Program
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Legal & Advocacy Support
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-2 mt-0.5">
+                                    <svg class="h-3 w-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                Research & Expert Guides
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Services Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Pricing & Services</h2>
+                <div class="w-20 h-1 bg-[#1877f2] mx-auto"></div>
+                <p class="mt-4 max-w-3xl mx-auto text-gray-600">
+                    Explore our range of services and pricing options designed to support your child's development journey.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <!-- Webinar Schedule -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">Upcoming Webinars</h3>
+                    <div id="webinar-schedule" class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <!-- Webinar schedule will be populated by webinars.js -->
+                    </div>
+                </div>
+
+                <!-- IEP Services -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">Individualized Education Plans (IEP)</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Basic IEP -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-gray-50 p-6">
+                                <h4 class="text-xl font-bold">Basic IEP</h4>
+                                <ul class="mt-4 space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        1-2 hour consultation
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Basic assessment
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        General recommendations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Comprehensive IEP -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-[#1877f2]">
+                            <div class="bg-[#1877f2] p-6">
+                                <h4 class="text-xl font-bold text-white">Comprehensive IEP</h4>
+                                <ul class="mt-4 space-y-2 text-white">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Full assessment
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Detailed IEP report
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        1-2 follow-up meetings
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Premium IEP -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-gray-50 p-6">
+                                <h4 class="text-xl font-bold">Premium IEP</h4>
+                                <ul class="mt-4 space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Full IEP + ongoing support
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Monthly progress tracking
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Implementation support
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="bg-blue-50 rounded-lg shadow-md p-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#1877f2] mb-2">Ready to Get Started?</h3>
+                            <p class="text-gray-700">Contact us for pricing details and to schedule a consultation.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <a href="mailto:hello@neuroconnectclub.com" class="inline-block bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold py-3 px-6 rounded-full transition">
+                                Contact Us
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -701,19 +937,47 @@
         </svg>
     </a>
 
-    <!-- Simple JavaScript for Smooth Scrolling -->
+    <!-- Simple JavaScript for Smooth Scrolling and Mobile Menu -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu.classList.contains('block')) {
+                        mobileMenu.classList.remove('block');
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Scroll to target
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('block');
+                    } else {
+                        mobileMenu.classList.remove('block');
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
         });
     </script>
 
-    <!-- Include the external JavaScript file -->
+    <!-- Include the external JavaScript files -->
     <script src="js/webinars.js"></script>
 </body>
 </html>

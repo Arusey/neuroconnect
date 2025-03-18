@@ -109,7 +109,7 @@
             <div class="order-summary">
                 <h2 class="text-xl font-bold mb-4">Webinar Details</h2>
                 <p class="mb-2"><strong>Selected Webinar:</strong> <span id="webinarTitleDisplay">Loading...</span></p>
-                <p class="mb-2"><strong>Fee:</strong> 350 KES</p>
+                <p class="mb-2"><strong>Fee:</strong> <span id="webinarFee">Loading...</span></p>
                 <p class="text-sm text-gray-600">Please complete the registration form and payment details below.</p>
             </div>
             
@@ -119,54 +119,69 @@
                 <div class="form-group">
                     <label for="name" class="form-label">Full Name</label>
                     <input type="text" id="name" name="name" class="form-input" required>
-                </div>
-                
+                    </div>
+                    
                 <div class="form-group">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="email" id="email" name="email" class="form-input" required>
-                </div>
-                
+                        </div>
+                        
                 <div class="form-group">
                     <label for="phone" class="form-label">Phone Number</label>
                     <input type="tel" id="phone" name="phone" class="form-input" required>
-                </div>
-                
+                        </div>
+                        
                 <div class="form-group">
                     <label for="referral" class="form-label">How did you hear about us?</label>
                     <select id="referral" name="referral" class="form-select">
-                        <option value="">Please select</option>
-                        <option value="social-media">Social Media</option>
-                        <option value="friend">Friend or Family</option>
-                        <option value="search">Search Engine</option>
-                        <option value="other">Other</option>
-                    </select>
+                                <option value="">Please select</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="friend">Friend or Family</option>
+                                <option value="search">Search Engine</option>
+                                <option value="other">Other</option>
+                            </select>
+                    </div>
+                    
+                <!-- Payment Section - Will be hidden for free webinars -->
+                <div id="paymentSection">
+                    <h3 class="text-xl font-bold mb-4 mt-8">Payment Information</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Payment Instructions:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Go to M-PESA on your phone</li>
+                            <li>Select "Till Number"</li>
+                            <li>Enter Till Number: <strong>40093040</strong></li>
+                            <li>Enter Amount: <strong>350 KES</strong></li>
+                            <li>Enter your M-PESA PIN and confirm payment</li>
+                            <li>You will receive a confirmation message with a transaction code</li>
+                        </ol>
+                        <p class="mt-4 text-sm text-gray-600">Business Name: <strong>Taskcart Limited</strong></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mpesaNumber" class="form-label">Phone Number Used for Payment</label>
+                        <input type="tel" id="mpesaNumber" name="mpesaNumber" class="form-input" placeholder="e.g. 07XX XXX XXX">
+                    </div>
+                            
+                    <div class="form-group">
+                        <label for="paymentReference" class="form-label">M-PESA Transaction Code</label>
+                        <input type="text" id="paymentReference" name="paymentReference" class="form-input" placeholder="e.g. QJI2XXXXXXX">
+                    </div>
                 </div>
                 
-                <h3 class="text-xl font-bold mb-4 mt-8">Payment Information</h3>
-                <p class="mb-4 text-sm text-gray-600">Please send payment via M-PESA to <strong>+254 723 876047</strong> and enter the details below.</p>
-                
-                <div class="form-group">
-                    <label for="mpesaNumber" class="form-label">M-PESA Phone Number</label>
-                    <input type="tel" id="mpesaNumber" name="mpesaNumber" class="form-input" required placeholder="e.g. 07XX XXX XXX">
-                </div>
-                
-                <div class="form-group">
-                    <label for="paymentReference" class="form-label">M-PESA Payment Reference Number</label>
-                    <input type="text" id="paymentReference" name="paymentReference" class="form-input" required placeholder="e.g. QJI2XXXXXXX">
-                </div>
-                
-                <!-- Hidden field for webinar title -->
+                <!-- Hidden fields -->
                 <input type="hidden" id="webinarTitle" name="webinarTitle" value="">
+                <input type="hidden" id="isFreeWebinar" name="isFreeWebinar" value="false">
                 
                 <div class="flex justify-between mt-8">
                     <button type="submit" id="submit-button" class="btn-primary">Complete Registration</button>
                     <button type="button" id="cancel-button" class="btn-secondary">Cancel</button>
-                </div>
-            </form>
-            
+                    </div>
+                </form>
+                
             <div id="result" class="result" style="display: none;">
-                <h4 class="font-bold mb-2">Submission Result:</h4>
-                <pre id="result-content" class="whitespace-pre-wrap text-sm bg-gray-50 p-3 rounded overflow-auto max-h-60"></pre>
+                    <h4 class="font-bold mb-2">Submission Result:</h4>
+                    <pre id="result-content" class="whitespace-pre-wrap text-sm bg-gray-50 p-3 rounded overflow-auto max-h-60"></pre>
             </div>
         </div>
     </div>
@@ -177,10 +192,42 @@
             const urlParams = new URLSearchParams(window.location.search);
             const webinarTitle = urlParams.get('webinar');
             
-            // Set webinar title in the form and display
+            // Function to check if webinar is free
+            function isWebinarFree(title) {
+                // Check if it's the March 22nd webinar
+                return title && (
+                    title.toLowerCase().includes("understanding autism: myths, facts, and early signs") ||
+                    title.toLowerCase().includes("march 22")
+                );
+            }
+            
+            // Set webinar title and handle free/paid status
             if (webinarTitle) {
                 document.getElementById('webinarTitle').value = webinarTitle;
                 document.getElementById('webinarTitleDisplay').textContent = webinarTitle;
+                
+                const isFree = isWebinarFree(webinarTitle);
+                document.getElementById('isFreeWebinar').value = isFree;
+                
+                // Update fee display and payment section visibility
+                const feeElement = document.getElementById('webinarFee');
+                const paymentSection = document.getElementById('paymentSection');
+                
+                if (isFree) {
+                    feeElement.textContent = "FREE";
+                    paymentSection.style.display = 'none';
+                    
+                    // Make payment fields not required
+                    document.getElementById('mpesaNumber').removeAttribute('required');
+                    document.getElementById('paymentReference').removeAttribute('required');
+                } else {
+                    feeElement.textContent = "350 KES";
+                    paymentSection.style.display = 'block';
+                    
+                    // Make payment fields required
+                    document.getElementById('mpesaNumber').setAttribute('required', 'required');
+                    document.getElementById('paymentReference').setAttribute('required', 'required');
+                }
             }
             
             // Handle form submission
@@ -207,17 +254,23 @@
                 const mpesaNumber = document.getElementById('mpesaNumber').value;
                 const paymentReference = document.getElementById('paymentReference').value;
                 const registrationDate = new Date().toISOString();
+                const isFreeWebinar = document.getElementById('isFreeWebinar').value === 'true';
                 
                 // Log the data being sent (for debugging)
                 console.log("Sending form data:", {
-                    name, email, phone, referral, webinarTitle, mpesaNumber, paymentReference, registrationDate
+                    name, email, phone, referral, webinarTitle, mpesaNumber, paymentReference, registrationDate, isFreeWebinar
                 });
                 
                 // Google Sheet submission URL
                 const googleSheetURL = "https://script.google.com/macros/s/AKfycbydGNaOc3aLn4ENWp2LstxzYnSbKM7PYsrb4vCzw_ylzNbDUKnr--29u5VMKrGOiY1JVQ/exec";
                 
                 // Create a URL with parameters
-                const url = `${googleSheetURL}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&referral=${encodeURIComponent(referral)}&webinarTitle=${encodeURIComponent(webinarTitle)}&mpesaNumber=${encodeURIComponent(mpesaNumber)}&paymentReference=${encodeURIComponent(paymentReference)}&registrationDate=${encodeURIComponent(registrationDate)}`;
+                let url = `${googleSheetURL}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&referral=${encodeURIComponent(referral)}&webinarTitle=${encodeURIComponent(webinarTitle)}&registrationDate=${encodeURIComponent(registrationDate)}&isFreeWebinar=${encodeURIComponent(isFreeWebinar)}`;
+                
+                // Only add payment details if it's not a free webinar
+                if (!isFreeWebinar) {
+                    url += `&mpesaNumber=${encodeURIComponent(mpesaNumber)}&paymentReference=${encodeURIComponent(paymentReference)}`;
+                }
                 
                 // Create a hidden iframe for submission
                 const iframeId = 'hidden-form-iframe';

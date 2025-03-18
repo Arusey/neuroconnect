@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations - NeuroConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom color scheme */
+        :root {
+            --primary: #406b86;    /* Deep blue */
+            --secondary: #9cbcc6;  /* Light blue-gray */
+            --accent: #eb8445;     /* Orange */
+            --highlight: #a4485e;  /* Burgundy/Rose */
+            --light: #faf2e9;      /* Cream/Off-white */
+            --neutral: #e4c5af;    /* Beige */
+        }
+        
+        /* Custom animations */
+        .hover-grow {
+            transition: transform 0.3s ease;
+        }
+        .hover-grow:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Improved responsiveness for mobile */
+        @media (max-width: 640px) {
+            .mobile-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            .mobile-menu li {
+                margin: 0.5rem 0;
+            }
+        }
+        
+        /* Custom animations */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header with Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/neuroconnectlogo.jpeg" alt="NeuroConnect Logo" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-2xl font-bold text-[#406b86]">NeuroConnect</h1>
+                        <p class="text-sm text-gray-600">Empowering Neurodiversity</p>
+                    </div>
+                </a>
+                
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <svg class="h-6 w-6 text-[#406b86]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:block py-2">
+                    <ul class="flex space-x-6">
+                        <li><a href="index.html" class="font-semibold hover:text-[#406b86] transition">Home</a></li>
+                        <li><a href="about.html" class="font-semibold hover:text-[#406b86] transition">About Us</a></li>
+                        <li><a href="services.html" class="font-semibold hover:text-[#406b86] transition">Services</a></li>
+                        <li><a href="club.html" class="font-semibold hover:text-[#406b86] transition">NeuroConnect Club</a></li>
+                        <li><a href="webinars.html" class="font-semibold hover:text-[#406b86] transition">Webinars</a></li>
+                        <li><a href="resources.html" class="font-semibold hover:text-[#406b86] transition">Resources</a></li>
+                        <li><a href="donations.html" class="font-semibold hover:text-[#406b86] transition text-blue-600">Donations</a></li>
+                        <li><a href="contact.html" class="font-semibold hover:text-[#406b86] transition">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation (hidden by default) -->
+            <nav id="mobile-menu" class="hidden md:hidden py-4">
+                <ul class="flex flex-col space-y-4">
+                    <li><a href="index.html" class="block font-semibold hover:text-[#406b86] transition">Home</a></li>
+                    <li><a href="about.html" class="block font-semibold hover:text-[#406b86] transition">About Us</a></li>
+                    <li><a href="services.html" class="block font-semibold hover:text-[#406b86] transition">Services</a></li>
+                    <li><a href="club.html" class="block font-semibold hover:text-[#406b86] transition">NeuroConnect Club</a></li>
+                    <li><a href="webinars.html" class="block font-semibold hover:text-[#406b86] transition">Webinars</a></li>
+                    <li><a href="resources.html" class="block font-semibold hover:text-[#406b86] transition">Resources</a></li>
+                    <li><a href="donations.html" class="block font-semibold hover:text-[#406b86] transition text-blue-600">Donations</a></li>
+                    <li><a href="contact.html" class="block font-semibold hover:text-[#406b86] transition">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Donations Hero Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-500 to-teal-400 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Support Our Mission</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Your donations help us create lasting change in our community by supporting neurodivergent individuals and their families.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <!-- Donation Options -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-[#406b86]">Books & Educational Materials</h3>
+                        <div class="space-y-4">
+                            <p>We welcome donations of both new and gently used educational books.</p>
+                            <p>These can include textbooks, workbooks, reference materials, or even engaging literature that supports learning.</p>
+                            <p>All donated books should be in good condition, without significant damage, so they can be easily integrated into our library or curriculum resources.</p>
+                        </div>
+                    </div>
+                        
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-[#406b86]">Uniforms</h3>
+                        <div class="space-y-4">
+                            <p>Donated uniforms, whether new or lightly worn, help ensure that all students have access to proper attire for school.</p>
+                            <p>We accept uniforms for various age groups and sizes, and we can provide guidance on what is most needed.</p>
+                            <p>Please ensure that all items are clean and in good repair to meet our quality standards.</p>
+                        </div>
+                    </div>
+                        
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-[#406b86]">Monetary Donations</h3>
+                        <div class="space-y-4 mb-6">
+                            <p>Financial contributions of any amount are always appreciated and go directly towards supporting our programs.</p>
+                            <p>Donations can be specifically directed toward courses, helping to cover tuition, materials, equipment, and other educational expenses.</p>
+                            <p>All monetary donations, regardless of size, make a significant impact on our ability to provide quality education and support.</p>
+                        </div>
+                        
+                        <!-- Lipa na M-Pesa Payment Option -->
+                        <div class="mt-6 bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="flex flex-col md:flex-row items-center gap-6">
+                                <img src="assets/lipa-na-mpesa.png" alt="Lipa na M-Pesa" class="h-24 object-contain">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-3 text-[#406b86]">Donate via M-Pesa</h4>
+                                    <p class="mb-2">Make your donation easily through M-Pesa:</p>
+                                    <ul class="space-y-1">
+                                        <li><strong>Till Number:</strong> 40093040</li>
+                                        <li><strong>Account Name:</strong> (Taskcart limited)</li>
+                                    </ul>
+                                    <p class="mt-3 text-sm text-gray-600">After making your payment, please send us a confirmation message via our contact information for acknowledgment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-[#406b86]">Additional Contributions</h3>
+                        <div class="space-y-4">
+                            <p><strong>Stationery & School Supplies:</strong> Notebooks, pens, pencils, markers, and art supplies.</p>
+                            <p><strong>Electronic Equipment:</strong> Laptops, tablets, computers, and educational software.</p>
+                            <p><strong>Furniture & Equipment:</strong> Desks, chairs, bookshelves, and audio-visual equipment.</p>
+                            <p><strong>Sports & Recreational Items:</strong> Sports equipment to support physical education.</p>
+                            <p><strong>Volunteer Services:</strong> Professional services like IT support, mentoring, or tutoring.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donation Process -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md mb-12">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Donation Process</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="rounded-full bg-blue-100 text-blue-600 w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                            <h4 class="text-xl font-bold mb-3">Choose Donation Type</h4>
+                            <p>Select the type of donation you'd like to make through our secure online form.</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="rounded-full bg-blue-100 text-blue-600 w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                            <h4 class="text-xl font-bold mb-3">Complete Transaction</h4>
+                            <p>For monetary donations, use M-Pesa with our Till number 40093040 or arrange for physical item delivery/pickup.</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="rounded-full bg-blue-100 text-blue-600 w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                            <h4 class="text-xl font-bold mb-3">See Your Impact</h4>
+                            <p>Receive updates on how your donation is making a difference in our community.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- M-Pesa Payment Instructions -->
+                    <div class="mt-8 border-t pt-8">
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-6">
+                            <img src="assets/lipa-na-mpesa.png" alt="Lipa na M-Pesa" class="h-20 object-contain">
+                            <h4 class="text-xl font-bold text-center text-[#406b86]">How to Donate Using M-Pesa</h4>
+                        </div>
+                        <div class="max-w-3xl mx-auto">
+                            <ol class="list-decimal pl-6 space-y-3">
+                                <li>Go to your M-Pesa menu on your mobile phone</li>
+                                <li>Select "Lipa na M-Pesa"</li>
+                                <li>Select "Buy Goods and Services"</li>
+                                <li>Enter Till Number: <strong>40093040</strong></li>
+                                <li>Enter the amount you wish to donate</li>
+                                <li>Enter your M-Pesa PIN and confirm the transaction</li>
+                                <li>You will receive an SMS confirmation of your payment</li>
+                                <li>Send us a message with your transaction details to receive a donation acknowledgment</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Impact of Donations -->
+                <div class="bg-white p-8 rounded-lg shadow-md mb-12">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Impact of Your Donations</h3>
+                    <p class="text-lg mb-6 text-center">
+                        Every donation, whether in the form of books, uniforms, or monetary support, plays a crucial role in enhancing the educational experience for our students.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-bold mb-3 text-[#406b86]">Expand Access</h4>
+                            <p>Your donations help us reach more students, expanding our programs to include those who might otherwise not have access to quality education.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-bold mb-3 text-[#406b86]">Improve Quality</h4>
+                            <p>With better resources, we can provide higher quality educational experiences, tailored to meet the unique needs of each student.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-bold mb-3 text-[#406b86]">Ensure Sustainability</h4>
+                            <p>We ensure that all donated resources are distributed effectively to benefit those who need them most.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="contact.html" class="inline-block bg-blue-800 hover:bg-blue-900 text-white font-bold py-4 px-8 rounded-md transition shadow-lg">
+                        Contact Us About Your Donation
+                    </a>
+                    <p class="mt-4 text-gray-600">Thank you for considering a donation. Your support through M-Pesa (Till Number: 40093040) or other means not only sustains our mission but also creates lasting change in our community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <img src="assets/neuroconnectlogo.jpeg" alt="NeuroConnect Logo" class="h-16 mx-auto mb-4">
+                <h2 class="text-2xl font-bold text-white mb-2">Empowering Neurodiversity, Connecting Lives</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <p class="text-gray-300 mb-4">NeuroConnect is dedicated to empowering special needs families, schools, and individuals across Kenya, Uganda, Tanzania, Sudan, and Rwanda through training, advocacy, and community resources.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://www.facebook.com/share/18UJBRWfM2/" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/NeuroConnectKE" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.059 10.059 0 01-3.13 1.198 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/neuroconnectclub?igsh=b3l5aTYxa2sxNjE0" class="bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700 transition">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="http://tiktok.com/@neuroconnectclub" class="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/neuroconnect-club" class="bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800 transition">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Services</a></li>
+                        <li><a href="club.html" class="text-gray-300 hover:text-white transition">NeuroConnect Club</a></li>
+                        <li><a href="webinars.html" class="text-gray-300 hover:text-white transition">Webinars</a></li>
+                        <li><a href="resources.html" class="text-gray-300 hover:text-white transition">Resources</a></li>
+                        <li><a href="donations.html" class="text-gray-300 hover:text-white transition">Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Special Needs Support</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Parent Training & Education</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">One-on-One Consultations</a></li>
+                        <li><a href="webinars.html" class="text-gray-300 hover:text-white transition">Online Courses & Webinars</a></li>
+                        <li><a href="club.html" class="text-gray-300 hover:text-white transition">Membership Programs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <p class="text-gray-300 mb-4">Based in Kenya, serving Kenya, Uganda, Tanzania, Sudan, and Rwanda.</p>
+                    <p class="mb-2"><a href="mailto:hello@neuroconnectclub.com" class="text-gray-300 hover:text-white">hello@neuroconnectclub.com</a></p>
+                    <p><a href="tel:+254715233788" class="text-gray-300 hover:text-white">+254 715 233 788</a></p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-6 text-center">
+                <p class="text-gray-400">&copy; 2023 NeuroConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 
